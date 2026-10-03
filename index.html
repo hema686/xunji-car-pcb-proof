@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>循迹小车核心板｜图文说明</title>
+  <style>
+    :root{--ink:#172033;--muted:#5e6a7d;--blue:#1456d8;--line:#dbe3f0;--bg:#f5f7fb}
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:"Microsoft YaHei",system-ui,sans-serif;line-height:1.65}
+    .page{max-width:1100px;margin:0 auto;padding:30px 22px 60px}.hero{background:linear-gradient(135deg,#143a8f,#2388d8);color:#fff;border-radius:20px;padding:34px 38px;box-shadow:0 12px 30px #123b7320}.hero h1{margin:0 0 8px;font-size:34px}.hero p{margin:5px 0;opacity:.94}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}.card{background:#fff;border:1px solid var(--line);border-radius:15px;padding:18px;box-shadow:0 5px 15px #17345d0d}.card h2{font-size:19px;margin:0 0 10px;color:#103d92}.meta{display:grid;grid-template-columns:120px 1fr;gap:6px 14px}.meta strong{color:var(--muted)}.wide{margin-top:18px}.wide h2{margin-bottom:14px}.figure{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;margin:16px 0}.figure img{display:block;width:100%;height:auto;border-radius:8px;background:#10131b}.figure figcaption{padding:9px 4px 2px;color:var(--muted);font-size:14px}.notice{border-left:5px solid #f0aa19;background:#fff8e4;padding:13px 16px;border-radius:8px;color:#624c16}.footer{color:var(--muted);text-align:center;font-size:13px;margin-top:28px}.tag{display:inline-block;background:#e8f0ff;color:#1449af;border-radius:99px;padding:2px 10px;margin:2px 4px 2px 0;font-size:13px}
+    @media(max-width:760px){.grid{grid-template-columns:1fr}.hero{padding:25px 22px}.hero h1{font-size:27px}.page{padding:18px 12px 40px}}
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <h1>循迹小车核心板</h1>
+      <p>“重生之回学校造车队”自制 PCB 图文说明</p>
+      <p>制板日期：2026-10-03</p>
+    </section>
+
+    <section class="grid">
+      <article class="card"><h2>基本信息</h2><div class="meta">
+        <strong>队伍名称</strong><span>重生之回学校造车队</span>
+        <strong>PCB名称</strong><span>循迹小车核心板</span>
+        <strong>制板日期</strong><span>2026-10-03</span>
+        <strong>设计定位</strong><span>模块直插式连接/转接核心板</span>
+      </div></article>
+      <article class="card"><h2>主要功能</h2><p>将 STM32 主控板、电机驱动模块、编码器电机、传感器、蓝牙、蜂鸣器、显示与电源模块进行集中转接，减少杜邦线数量，便于循迹小车的安装、调试与维护。</p></article>
+      <article class="card"><h2>设计关键词</h2><span class="tag">模块直插</span><span class="tag">STM32</span><span class="tag">双电机驱动</span><span class="tag">编码器接口</span><span class="tag">传感器扩展</span><span class="tag">5V/3.3V电源</span></article>
+    </section>
+
+    <section class="card wide"><h2>电路与接口说明</h2>
+      <p>本板采用成品模块和排针接口进行连接，核心板本身主要承担电源分配、信号引出和模块转接功能。原理图中包含电源模块、STM32主控模块、电机驱动模块、编码器电机接口、超声波接口、舵机接口、蜂鸣器、蓝牙模块、传感器模块及 OLED 扩展接口。</p>
+      <p>电源网络按功能区分为电池输入、降压输出 5V、3.3V 逻辑电源和公共 GND；电机与传感器等接口通过排针引出，便于插拔和后续调试。</p>
+    </section>
+
+    <section class="card wide"><h2>设计资料</h2>
+      <figure class="figure"><img src="pcb-front.png" alt="PCB正面设计图"><figcaption>图1｜PCB正面设计图（Top Layer/正面视图）</figcaption></figure>
+      <figure class="figure"><img src="pcb-back.png" alt="PCB背面设计图"><figcaption>图2｜PCB背面设计图（Bottom Layer/背面视图）</figcaption></figure>
+      <figure class="figure"><img src="schematic.png" alt="PCB原理图"><figcaption>图3｜循迹小车核心板原理图</figcaption></figure>
+    </section>
+
+    <section class="card wide"><h2>自制说明</h2>
+      <p>本 PCB 由队伍根据循迹小车的模块连接需求自行完成接口规划、原理图绘制、PCB布局布线、丝印标识与电源/信号网络设计。板面印有队伍名称、PCB名称、日期及接口标识，可通过现场实物与本说明页中的设计资料进行核对。</p>
+      <div class="notice"><strong>实物照片：</strong>当前资料包尚未包含打样后的实物照片。取得实物后，请将本页的“实物照片待补充”替换为正面、背面和关键接口的实拍图，再生成最终二维码。</div>
+    </section>
+
+    <section class="card wide"><h2>核验建议</h2><ol><li>核对 PCB 板面丝印中的队伍名称、PCB名称和日期。</li><li>核对 STM32、TB6612、电源模块和各传感器接口位置。</li><li>将实物照片与正反面 PCB 设计图对照，确认接口和板框一致。</li><li>扫码进入本说明页，查看原理图、PCB图和实物图。</li></ol></section>
+    <p class="footer">资料版本：V1.0｜更新日期：2026-10-03｜由“重生之回学校造车队”整理</p>
+  </main>
+</body>
+</html>
